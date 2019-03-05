@@ -3,3 +3,14 @@
     padding: 0;
     list-style: none;
 }
+.choose-button {
+  margin: 4px !important;
+}
+.configure-button {
+  margin: 4px !important;
+}
+.header {
+  text-align: center;
+  margin-top: 10px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}

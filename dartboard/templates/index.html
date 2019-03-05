@@ -1,12 +1,35 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-  <h1>Dartboard</h1>
-  <p>Dartboard, a website developed by <em>Henry O'Callaghan and Nathan Goldman</em>!</p>
-  <h2>Dynamic content</h2>
-  <p>The system has the following records:</p>
-  <ul>
-    <li><strong>Choices:</strong> {{ num_choices }}</li>
-    <li><strong>Decisions:</strong> {{ num_decisions }}</li>
-  </ul>
+<div class="row">
+  <div class="col-md-12">
+    <div class="page-header header">
+      <h1>
+        Dartboard
+      </h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+
+    <button type="button" class="btn btn-block btn-danger choose-button">
+      Choose!
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+
+    <button type="button" class="btn btn-success btn-block configure-button">
+      Set Decision
+    </button>
+  </div>
+  <div class="col-md-6">
+
+    <button type="button" class="btn btn-success btn-block configure-button">
+      Add Choices
+    </button>
+  </div>
+</div>
 {% endblock %}
