@@ -24,6 +24,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dartboard/', include('dartboard.urls')),
-    #path('catalog/', RedirectView.as_view(url='/dartboard/', permanent=True)),
+    path('catalog/', RedirectView.as_view(url='/dartboard/', permanent=True)),
     path('', RedirectView.as_view(url='/dartboard/', permanent=True)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

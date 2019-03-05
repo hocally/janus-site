@@ -10,6 +10,9 @@ def index(request):
     num_decisions = Decision.objects.all().count()
     num_choices = Choice.objects.all().count()
 
+    #num_decisions = 4
+    #num_choices = 3
+
     context = {
         'num_decisions': num_decisions,
         'num_choices': num_choices,

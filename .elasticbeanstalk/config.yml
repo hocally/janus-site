@@ -2,6 +2,8 @@ branch-defaults:
   default:
     environment: janus-env
     group_suffix: null
+  master:
+    environment: janus-env
 environment-defaults:
   janus-env:
     branch: null
