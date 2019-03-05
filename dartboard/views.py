@@ -10,9 +10,6 @@ def index(request):
     num_decisions = Decision.objects.all().count()
     num_choices = Choice.objects.all().count()
 
-    #num_decisions = 4
-    #num_choices = 3
-
     context = {
         'num_decisions': num_decisions,
         'num_choices': num_choices,
@@ -20,3 +17,7 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+def about(request):
+    """View function for about page of site"""
+    return render(request, 'about.html')

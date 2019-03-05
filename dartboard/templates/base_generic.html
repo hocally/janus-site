@@ -14,15 +14,22 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-1">
-      {% block sidebar %}
-        <ul class="sidebar-nav">
-          <li><a href="{% url 'index' %}">Home</a></li>
-          <li><a href="">Choices</a></li>
-          <li><a href="">Decisions</a></li>
-        </ul>
-     {% endblock %}
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
       </div>
+      <span class="sidebar-button" onclick="openNav()">&#9776; Menu</span>
+
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
       <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
     </div>
   </div>
