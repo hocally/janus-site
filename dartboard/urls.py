@@ -7,5 +7,5 @@ urlpatterns = [
     path('choose', views.choose, name='choose'),
     path('set_decision', views.set_decision, name='set_decision'),
     path('add_choices', views.add_choices, name='add_choices'),
-
+    path('mychoices/', views.ChoicesByAuthorListView.as_view(), name='my-choices'),
 ]

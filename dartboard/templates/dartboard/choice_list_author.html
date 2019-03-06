@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1 style="text-align:center">My Choices</h1>
+{% if choice_list %}
+<div class="row">
+	<div class="col-md-1">
+    </div>
+    <div class="col-md-11">
+<ul>
+  {% for choice in choice_list %}
+  <li>
+    <a href="#">{{choice.name}}</a>
+  </li>
+  {% endfor %}
+</ul>
+</div>
+</div>
+{% else %}
+<p>You have entered no choices.</p>
+{% endif %}
+{% endblock %}

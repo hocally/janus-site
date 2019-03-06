@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from dartboard.models import Decision, Choice
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views import generic
 
 # Create your views here.
 
@@ -40,3 +42,12 @@ def set_decision(request):
 def add_choices(request):
 
     return render(request, 'add_choices.html')
+
+class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
+    """Generic class-based view listing books on loan to current user."""
+    model = Choice
+    template_name ='dartboard/choice_list_author.html'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return Choice.objects.filter(author=self.request.user)
