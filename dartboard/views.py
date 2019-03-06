@@ -52,7 +52,7 @@ class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
     model = Choice
     template_name ='dartboard/choice_list_author.html'
     paginate_by = 10
-
+    
     def get_queryset(self):
         return Choice.objects.filter(author=self.request.user)
 
