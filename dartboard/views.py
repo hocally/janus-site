@@ -52,7 +52,7 @@ class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
     model = Choice
     template_name ='dartboard/choice_list_author.html'
     paginate_by = 10
-    
+
     def get_queryset(self):
         return Choice.objects.filter(author=self.request.user)
 
@@ -117,7 +117,8 @@ def add_choices_user(request):
 
             for choice in choices:
                 choice.decision = Decision.objects.filter(author=request.user)[0]
-                choice.save()
+                if choice.name is not '':
+                    choice.save()
 
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('index')) #should redirect to enter choices page

@@ -9,11 +9,11 @@ class SetDecisionForm(forms.Form):
         return data
 
 class AddChoicesForm(forms.Form):
-    c1 = forms.CharField(help_text="Enter choice 1")
-    c2 = forms.CharField(help_text="Enter choice 2")
-    c3 = forms.CharField(help_text="Enter choice 3")
-    c4 = forms.CharField(help_text="Enter choice 4")
-    c5 = forms.CharField(help_text="Enter choice 5")
+    c1 = forms.CharField(help_text="Enter choice 1", required=False)
+    c2 = forms.CharField(help_text="Enter choice 2", required=False)
+    c3 = forms.CharField(help_text="Enter choice 3", required=False)
+    c4 = forms.CharField(help_text="Enter choice 4", required=False)
+    c5 = forms.CharField(help_text="Enter choice 5", required=False)
 
     def clean_c1 (self):
         data = self.cleaned_data['c1']
