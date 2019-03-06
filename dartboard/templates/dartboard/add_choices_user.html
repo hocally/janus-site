@@ -1,0 +1,49 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <form action="" method="post">
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-text">
+    {% csrf_token %}
+    {{ form.c1.help_text }} {{ form.c1 }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-input">
+    {{ form.c2.help_text }} {{ form.c2 }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-input">
+    {{ form.c3.help_text }} {{ form.c3 }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-input">
+    {{ form.c4.help_text }} {{ form.c4 }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-input">
+    {{ form.c5.help_text }} {{ form.c5 }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 choice-input">
+    <input type="submit" value="Submit" class="btn btn-success btn-block login-button">
+  </div>
+</div>
+</form>
+{% endblock %}

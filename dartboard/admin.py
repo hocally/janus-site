@@ -5,6 +5,7 @@ from dartboard.models import Decision, Choice
 class DecisionAdmin(admin.ModelAdmin):
     list_display = ('name', 'author',)
     list_filter = ('author',)
+
 @admin.register(Choice)
 class ChoiceAdmin(admin.ModelAdmin):
     list_display = ('name', 'decision', 'author')

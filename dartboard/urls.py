@@ -8,4 +8,7 @@ urlpatterns = [
     path('set_decision', views.set_decision, name='set_decision'),
     path('add_choices', views.add_choices, name='add_choices'),
     path('mychoices/', views.ChoicesByAuthorListView.as_view(), name='my-choices'),
+    path('decision/set/', views.set_decision_user, name='set-decision-user'),
+    path('choices/add/', views.add_choices_user, name='add-choices-user'),
+
 ]
