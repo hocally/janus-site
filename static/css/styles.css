@@ -81,3 +81,8 @@
 .background {
     background-color: lightblue;
 }
+
+.logout-text {
+  text-align: center;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}

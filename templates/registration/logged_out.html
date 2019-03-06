@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+  </div>
+  <div class="col-md-4 logout-text">
+    <p>Logged out!</p>
+    <a href="{% url 'login'%}">Click here to login again.</a>
+  </div>
+</div>
+{% endblock %}

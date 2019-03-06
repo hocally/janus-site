@@ -12,26 +12,33 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<button type="button" class="btn btn-block btn-danger choose-button">
-			Choose!
-		</button>
+		<form action="{% url 'choose' %}">
+			<button type="submit" class="btn btn-block btn-danger choose-button">
+				Choose!
+			</button>
+		</form>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-6">
-		<button type="button" class="btn btn-success btn-block configure-button">
-			Set Decision
-		</button>
+		<form action="{% url 'set_decision' %}">
+			<button type="submit" class="btn btn-success btn-block configure-button">
+				Set Decision
+			</button>
+		</form>
 	</div>
 	<div class="col-md-6">
-		<button type="button" class="btn btn-success btn-block configure-button">
-			Add Choices
-		</button>
+		<form action="{% url 'add_choices' %}">
+			<button type="submit" class="btn btn-success btn-block configure-button">
+				Add Choices
+			</button>
+		</form>
+
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-2">
-		<p class="view-count">You've visited {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+		<p class="view-count">Hello {% if user.is_authenticated %}{{ user.get_username }}{% else %}stranger{% endif %}! You've visited {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
 	</div>
 </div>
 {% endblock %}

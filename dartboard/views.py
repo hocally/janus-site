@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from dartboard.models import Decision, Choice
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -24,3 +25,18 @@ def index(request):
 def about(request):
     """View function for about page of site"""
     return render(request, 'about.html')
+
+@login_required
+def choose(request):
+
+    return render(request, 'choose.html')
+
+@login_required
+def set_decision(request):
+
+    return render(request, 'set_decision.html')
+
+@login_required
+def add_choices(request):
+
+    return render(request, 'add_choices.html')
