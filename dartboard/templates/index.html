@@ -5,14 +5,13 @@
 	<div class="col-md-12">
 		<div class="page-header header">
 			<h1>
-				Dartboard
+				Janus: The Decision Making Dartboard
 			</h1>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-
 		<button type="button" class="btn btn-block btn-danger choose-button">
 			Choose!
 		</button>
@@ -29,6 +28,10 @@
 			Add Choices
 		</button>
 	</div>
-
+</div>
+<div class="row">
+	<div class="col-md-2">
+		<p class="view-count">You've visited {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+	</div>
 </div>
 {% endblock %}

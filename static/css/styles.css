@@ -61,3 +61,23 @@
   cursor:pointer;
   margin-left: 10px;
 }
+
+.login-table {
+  text-align: center;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+  margin-bottom: 5px;
+}
+
+.view-count {
+  margin-top: 20px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+.login-button {
+  margin-top: 20px;
+  font-family: Futura,Trebuchet MS,Arial,sans-serif;
+}
+
+.background {
+    background-color: lightblue;
+}
