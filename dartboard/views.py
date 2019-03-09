@@ -117,7 +117,7 @@ def add_choices_user(request):
                     choice.save()
 
             # redirect to a new URL:
-            return HttpResponseRedirect(reverse('index')) #should redirect to enter choices page
+            return HttpResponseRedirect(reverse('choose')) #should redirect to enter choices page
 
     # If this is a GET (or any other method) create the default form.
     else:
