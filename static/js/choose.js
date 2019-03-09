@@ -8,7 +8,8 @@ function requestHeartbeat() {
     url: "http://100.64.13.129/heartbeat",
     error: AjaxFailed,
     success: function(data) {
-      doingStuff = 0;
+      text.text('Throw!')
+      requestThrow();
     }
   });
 }
@@ -20,44 +21,31 @@ function requestThrow() {
     error: AjaxFailed,
     success: function(data) {
       number = data;
-      doingStuff = 0;
+      var answer = options[number];
+      text.text('The dartboard has spoken: your answer is ' + answer + '!');
     },
     data: {
       maxNum: options.length
     },
     dataType: "text",
-    async: false,
   });
 }
 
 function AjaxFailed(result) {
   //alert("hello1");
-  alert(result.status + ' ' + result.statusText);
+  text.text('Error: Cannot commuinicate with microcontroller!');
 }
 
-switch (state) {
-  case 0:
-    doingStuff = 1;
-    requestHeartbeat();
-    state = 1;
-    break;
-  case 1:
-    if (doingStuff == 0) {
-      state = 2;
+/*
+setInterval(function() {
+    var th = $('.dots');
+    if(th.text().length < 3){
+        th.text(th.text()+".");
+    }else{
+        th.text("");
     }
-    break;
-  case 2:
-    doingStuff = 1;
-    requestThrow();
-    state = 3;
-    break;
-  case 3:
-    if (doingStuff == 0) {
-      state = 4;
-    }
-    break;
-  case 4:
-    window.alert(options[number])
-    state = 5;
-    break;
-}
+}, 500);
+*/
+var text = $('.choose-text');
+text.text('Waiting for heartbeat...')
+requestHeartbeat();
