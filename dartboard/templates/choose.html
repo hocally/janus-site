@@ -2,9 +2,24 @@
 
 {% load staticfiles%}
 {% block content %}
+<script>
+  var options = [];
+  {% for choice in choices %}
+    options.push( '{{choice.name}}' );
+  {% endfor %}
+</script>
 
-<p>
-  Test Choose
-</p>
+<div class="row">
+	<div class="col-md-12">
+		<div class="page-header header">
+      <h1>
+      Waiting for heartbeat...
+      </h1>
+    </div>
+  </div>
+</div>
+
 <script src="{% static '/js/choose.js' %}"></script>
+
+
 {% endblock %}

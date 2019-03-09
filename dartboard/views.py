@@ -7,7 +7,8 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.generic.edit import DeleteView, CreateView
-
+import json
+from django.core import serializers
 # Create your views here.
 
 def index(request):
@@ -31,11 +32,6 @@ def index(request):
 def about(request):
     """View function for about page of site"""
     return render(request, 'about.html')
-
-@login_required
-def choose(request):
-
-    return render(request, 'choose.html')
 
 @login_required
 def set_decision(request):
@@ -138,3 +134,10 @@ def add_choices_user(request):
     }
 
     return render(request, 'dartboard/add_choices_user.html', context)
+
+@login_required
+def choose(request):
+
+    choices = Choice.objects.filter(author=request.user)
+
+    return render(request, 'choose.html', {'choices' : choices})
