@@ -98,7 +98,6 @@ def set_decision_user(request):
 
 @login_required
 def add_choices_user(request):
-
     choices = [Choice(), Choice(), Choice(), Choice(), Choice()]
 
     for choice in choices:
@@ -146,6 +145,12 @@ def add_choices_user(request):
 @login_required
 def choose(request):
 
+    decision = Decision.objects.filter(author=request.user)[0]
     choices = Choice.objects.filter(author=request.user)
 
-    return render(request, 'choose.html', {'choices' : choices})
+    context = {
+        'choices': choices,
+        'decision': decision,
+    }
+
+    return render(request, 'choose.html', context=context)

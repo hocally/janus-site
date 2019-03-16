@@ -22,7 +22,7 @@ function requestThrow() {
     success: function(data) {
       number = JSON.parse(data)["num"];
       var answer = options[number];
-      text.text('The dartboard has spoken: your answer is ' + answer + '!');
+      text.text('The dartboard has decided that the answer to ' + decision.toLowerCase() + ' is ' + answer + '!');
     },
     data: {
       "maxNum": options.length
