@@ -16,16 +16,16 @@ function requestHeartbeat() {
 
 function requestThrow() {
   $.ajax({
-    type: 'POST',
+    type: 'GET',
     url: "http://henryocallaghan.pagekite.me/getNum/",
     error: AjaxFailed,
     success: function(data) {
-      number = data;
+      number = JSON.parse(data)["num"];
       var answer = options[number];
       text.text('The dartboard has spoken: your answer is ' + answer + '!');
     },
     data: {
-      maxNum: options.length
+      "maxNum": options.length
     },
     dataType: "text",
   });

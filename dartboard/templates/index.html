@@ -37,7 +37,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-2">
+	<div class="col-md-12">
 		<p class="view-count">Hello {% if user.is_authenticated %}{{ user.get_username }}{% else %}stranger{% endif %}! You've visited {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
 	</div>
 </div>

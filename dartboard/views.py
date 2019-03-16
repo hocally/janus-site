@@ -9,6 +9,9 @@ from django.urls import reverse
 from django.views.generic.edit import DeleteView, CreateView
 import json
 from django.core import serializers
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views import generic
 # Create your views here.
 
 def index(request):
@@ -28,6 +31,11 @@ def index(request):
 
     # Render the HTML template index.html with the data in the context variable
     return render(request, 'index.html', context=context)
+
+class SignUp(generic.CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
 
 def about(request):
     """View function for about page of site"""
