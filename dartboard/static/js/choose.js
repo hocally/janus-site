@@ -5,7 +5,7 @@ var doingStuff = 0;
 function requestHeartbeat() {
   $.ajax({
     type: 'GET',
-    url: "http://100.64.13.129/heartbeat",
+    url: "http://henryocallaghan.pagekite.me/heartbeat/",
     error: AjaxFailed,
     success: function(data) {
       text.text('Throw!')
@@ -17,7 +17,7 @@ function requestHeartbeat() {
 function requestThrow() {
   $.ajax({
     type: 'POST',
-    url: "http://100.64.13.129/numberRequest",
+    url: "http://henryocallaghan.pagekite.me/getNum/",
     error: AjaxFailed,
     success: function(data) {
       number = data;
@@ -46,6 +46,7 @@ setInterval(function() {
     }
 }, 500);
 */
+
 var text = $('.choose-text');
 text.text('Waiting for heartbeat...')
 requestHeartbeat();
