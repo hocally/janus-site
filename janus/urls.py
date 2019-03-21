@@ -25,7 +25,6 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('dartboard/', include('dartboard.urls')),
-    path('catalog/', RedirectView.as_view(url='/dartboard/', permanent=True)),
     path('', RedirectView.as_view(url='/dartboard/', permanent=True)),
     path('accounts/', include('dartboard.urls')),
     path('accounts/', include('django.contrib.auth.urls')),

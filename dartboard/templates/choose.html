@@ -4,7 +4,6 @@
 {% block content %}
 <script>
   var options = [];
-  var decision = '{{ decision.name }}'
   {% for choice in choices %}
     options.push( '{{ choice.name }}' );
   {% endfor %}

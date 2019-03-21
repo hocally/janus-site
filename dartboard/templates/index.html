@@ -3,7 +3,7 @@
 {% block content %}
 <div class="row">
 	<div class="col-md-12">
-		<div class="page-header header">
+		<div class="header">
 			<h1>
 				Janus: The Decision Making Dartboard
 			</h1>
@@ -11,29 +11,14 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-12">
-		<form action="{% url 'choose' %}">
-			<button type="submit" class="btn btn-block btn-danger choose-button">
-				Choose!
-			</button>
-		</form>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-6">
-		<form action="{% url 'set-decision-user' %}">
-			<button type="submit" class="btn btn-success btn-block configure-button">
-				Set Decision
-			</button>
-		</form>
+	<div class="col-md-3">
 	</div>
 	<div class="col-md-6">
 		<form action="{% url 'add-choices-user' %}">
 			<button type="submit" class="btn btn-success btn-block configure-button">
-				Add Choices
+				Start!
 			</button>
 		</form>
-
 	</div>
 </div>
 <div class="row">

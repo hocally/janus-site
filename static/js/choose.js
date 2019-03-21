@@ -28,7 +28,7 @@ function requestThrow() {
       state = 2;
       number = JSON.parse(data)["num"];
       var answer = options[number];
-      text.text('Janus has decided that the answer to \"' + decision + '\" is ' + answer + '!');
+      text.text('Your answer is ' + answer + '!');
     },
     data: {
       "maxNum": options.length
