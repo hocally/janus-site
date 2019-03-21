@@ -42,7 +42,7 @@ def about(request):
 class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
     """Generic class-based view listing books on loan to current user."""
     model = Choice
-    template_name ='dartboard/choice_list_author.html'
+    template_name ='choice_list_author.html'
     paginate_by = 10
 
     def get_queryset(self):
@@ -105,7 +105,7 @@ def add_choices_user(request):
         'c10': choices[9],
     }
 
-    return render(request, 'dartboard/add_choices_user.html', context)
+    return render(request, 'add_choices_user.html', context)
 
 @login_required
 def choose(request):
