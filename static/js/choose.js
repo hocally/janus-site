@@ -1,6 +1,9 @@
 var number = -1;
 var state = 0;
 var doingStuff = 0;
+var state = 0;
+var dots = $('.dots');
+
 
 function requestHeartbeat() {
   $.ajax({
@@ -8,7 +11,9 @@ function requestHeartbeat() {
     url: "http://henryocallaghan.pagekite.me/heartbeat/",
     error: AjaxFailed,
     success: function(data) {
+      dots.text("");
       text.text('Throw!')
+      state = 1;
       requestThrow();
     }
   });
@@ -20,6 +25,7 @@ function requestThrow() {
     url: "http://henryocallaghan.pagekite.me/getNum/",
     error: AjaxFailed,
     success: function(data) {
+      state = 2;
       number = JSON.parse(data)["num"];
       var answer = options[number];
       text.text('Janus has decided that the answer to \"' + decision + '\" is ' + answer + '!');
@@ -28,25 +34,28 @@ function requestThrow() {
       "maxNum": options.length
     },
     dataType: "text",
+    //timeout: 10000, // sets timeout to 3 seconds
   });
 }
 
 function AjaxFailed(result) {
   //alert("hello1");
+  dots.text("");
   text.text('Error: Cannot commuinicate with microcontroller!');
-}
+  state = -1;
 
-/*
+}
 setInterval(function() {
-    var th = $('.dots');
-    if(th.text().length < 3){
-        th.text(th.text()+".");
-    }else{
-        th.text("");
+  if (state == 0) {
+    if (dots.text().length < 3) {
+      dots.text(dots.text() + ".");
+    } else {
+      dots.text("");
     }
+  }
 }, 500);
-*/
+
 
 var text = $('.choose-text');
-text.text('Waiting for heartbeat...')
+text.text('Waiting for heartbeat')
 requestHeartbeat();

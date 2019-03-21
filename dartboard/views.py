@@ -98,7 +98,7 @@ def set_decision_user(request):
 
 @login_required
 def add_choices_user(request):
-    choices = [Choice(), Choice(), Choice(), Choice(), Choice()]
+    choices = [Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice()]
 
     for choice in choices:
         choice.author = request.user
@@ -117,6 +117,11 @@ def add_choices_user(request):
             choices[2].name = form.cleaned_data['c3']
             choices[3].name = form.cleaned_data['c4']
             choices[4].name = form.cleaned_data['c5']
+            choices[5].name = form.cleaned_data['c6']
+            choices[6].name = form.cleaned_data['c7']
+            choices[7].name = form.cleaned_data['c8']
+            choices[8].name = form.cleaned_data['c9']
+            choices[9].name = form.cleaned_data['c10']
 
             for choice in choices:
                 choice.decision = Decision.objects.filter(author=request.user)[0]
@@ -129,7 +134,7 @@ def add_choices_user(request):
     # If this is a GET (or any other method) create the default form.
     else:
         proposed_name = 'What to eat for dinner'
-        form = AddChoicesForm(initial={'c1': "Enter", 'c2': "Your", 'c3': "Desired", 'c4': "Choices", 'c5': "Here"})
+        form = AddChoicesForm()
 
     context = {
         'form': form,
@@ -138,6 +143,11 @@ def add_choices_user(request):
         'c3': choices[2],
         'c4': choices[3],
         'c5': choices[4],
+        'c6': choices[5],
+        'c7': choices[6],
+        'c8': choices[7],
+        'c9': choices[8],
+        'c10': choices[9],
     }
 
     return render(request, 'dartboard/add_choices_user.html', context)

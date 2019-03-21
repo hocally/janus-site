@@ -9,11 +9,16 @@ class SetDecisionForm(forms.Form):
         return data
 
 class AddChoicesForm(forms.Form):
-    c1 = forms.CharField(help_text="Enter choice 1", required=False)
-    c2 = forms.CharField(help_text="Enter choice 2", required=False)
-    c3 = forms.CharField(help_text="Enter choice 3", required=False)
-    c4 = forms.CharField(help_text="Enter choice 4", required=False)
-    c5 = forms.CharField(help_text="Enter choice 5", required=False)
+    c1 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 1'}), required=False)
+    c2 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 2'}), required=False)
+    c3 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 3'}), required=False)
+    c4 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 4'}), required=False)
+    c5 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 5'}), required=False)
+    c6 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 6'}), required=False)
+    c7 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 7'}), required=False)
+    c8 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 8'}), required=False)
+    c9 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 9'}), required=False)
+    c10 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Choice 10'}), required=False)
 
     def clean_c1 (self):
         data = self.cleaned_data['c1']
@@ -33,4 +38,24 @@ class AddChoicesForm(forms.Form):
 
     def clean_c5 (self):
         data = self.cleaned_data['c5']
+        return data
+
+    def clean_c6 (self):
+        data = self.cleaned_data['c6']
+        return data
+
+    def clean_c7 (self):
+        data = self.cleaned_data['c7']
+        return data
+
+    def clean_c8 (self):
+        data = self.cleaned_data['c8']
+        return data
+
+    def clean_c9 (self):
+        data = self.cleaned_data['c9']
+        return data
+
+    def clean_c10 (self):
+        data = self.cleaned_data['c10']
         return data
