@@ -6,6 +6,7 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 from . import views
 
+app_name="personal_homepage"
 urlpatterns = [
-    path('', views.personal_index, name='personal_index'),
+    path('', views.personal_index),
 ]

@@ -21,8 +21,8 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 
 urlpatterns = [
     path('dartboard/admin/', admin.site.urls),
-    path('dartboard/', include('dartboard.urls')),
+    path('dartboard/', include('dartboard.urls', namespace="dartboard")),
     path('', RedirectView.as_view(url='/personal_homepage/', permanent=False)),
-    path('personal_homepage/', include('personal_homepage.urls')),
+    path('personal_homepage/', include('personal_homepage.urls', namespace="personal_homepage")),
     path('dartboard/accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
