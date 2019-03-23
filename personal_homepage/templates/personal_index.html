@@ -1,0 +1,56 @@
+{% extends "personal_base_generic.html" %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3">
+			<img alt="The man, the myth" src="/static/images/zl1GWVzX_400x400.jpg" style="margin-bottom:20px; float:left; margin-top:15px; border-radius: 5%;" />
+		</div>
+		<div class="col-md-9">
+			<div class="jumbotron" style=margin-top:15px>
+				<h2>
+					It's Henry, yo
+				</h2>
+				<p>
+					I can make circuits sometimes
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4" style=text-align:center>
+			<h2>
+				Electrons
+			</h2>
+			<p>
+				Pretty cool, right?
+			</p>
+			<p>
+				<a class="btn" href="{% url 'personal_index' %}">View details »</a>
+			</p>
+		</div>
+		<div class="col-md-4" style=text-align:center>
+			<h2>
+				Bits/Bytes
+			</h2>
+			<p>
+				Very cool and very good
+			</p>
+			<p>
+				<a class="btn" href="{% url 'personal_index' %}">View details »</a>
+			</p>
+		</div>
+		<div class="col-md-4" style=text-align:center>
+			<h2>
+				Web Stuff
+			</h2>
+			<p>
+				How does it work?
+			</p>
+			<p>
+				<a class="btn" href="{% url 'personal_index' %}">View details »</a>
+			</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
