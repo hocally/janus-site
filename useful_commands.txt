@@ -2,4 +2,3 @@ python3 manage.py makemigrations - creates database/model migrations
 python3 manage.py migrate - migrates database/models
 python3 manage.py collectstatic - collects all of the static resources from apps into central file to be served in prod
 python3 manage.py runserver - starts dev server on 127.0.0.1 port 8000
-

@@ -1,5 +1,4 @@
 """janus URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
 Examples:
@@ -20,12 +19,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.storage import staticfiles_storage
 
-
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('dartboard/admin/', admin.site.urls),
     path('dartboard/', include('dartboard.urls')),
     path('', RedirectView.as_view(url='/dartboard/', permanent=True)),
-    path('accounts/', include('dartboard.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    #path('dartboard/accounts/', include('dartboard.urls')),
+    path('dartboard/accounts/', include('django.contrib.auth.urls')),
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
