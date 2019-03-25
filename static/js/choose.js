@@ -56,7 +56,7 @@ function skipThrow() {
 function AjaxFailed(result) {
   //alert("hello1");
   dots.text("");
-  text.text(result);
+  text.text("Error Communicating With the Dartboard");
   state = -1;
 }
 
