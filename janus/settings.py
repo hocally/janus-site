@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/dartboard'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
