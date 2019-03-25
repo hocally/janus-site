@@ -56,7 +56,7 @@ function skipThrow() {
 function AjaxFailed(result) {
   //alert("hello1");
   dots.text("");
-  text.text('Error: Cannot commuinicate with microcontroller!');
+  text.text(result);
   state = -1;
 }
 
