@@ -8,7 +8,7 @@ var waiting = true;
 function requestHeartbeat() {
   $.ajax({
     type: 'GET',
-    url: "http://henryocallaghan.pagekite.me/heartbeat/",
+    url: "https://henryocallaghan.pagekite.me/heartbeat/",
     error: AjaxFailed,
     success: function(data) {
       if (waiting === true) {
@@ -24,7 +24,7 @@ function requestHeartbeat() {
 function requestThrow() {
   $.ajax({
     type: 'GET',
-    url: "http://henryocallaghan.pagekite.me/getNum/",
+    url: "https://henryocallaghan.pagekite.me/getNum/",
     error: AjaxFailed,
     success: function(data) {
       if (waiting === true) {
@@ -56,7 +56,7 @@ function skipThrow() {
 function AjaxFailed(result) {
   //alert("hello1");
   dots.text("");
-  text.text('Error: Cannot commuinicate with microcontroller!');
+  text.text(result);
   state = -1;
 }
 
