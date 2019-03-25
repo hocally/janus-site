@@ -25,4 +25,5 @@ urlpatterns = [
     path('', RedirectView.as_view(url='/personal_homepage/', permanent=False)),
     path('personal_homepage/', include('personal_homepage.urls', namespace="personal_homepage")),
     path('accounts/', include('django.contrib.auth.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('health/', include('health_check.urls')),
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
