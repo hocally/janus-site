@@ -126,14 +126,22 @@
   color: #50514f;
 }
 
-.start-button:hover {
+.default-button:hover {
   background-color: #50514f;
   color: white;
   border: 2px solid #50514f;
 }
 
-.start-button:active {
+.default-button:active {
   background-color: #50514f;
   color: white;
   border: 2px solid #50514f;
 }
+
+/*
+.start-button:focus {
+  background-color: #50514f;
+  color: white;
+  border: 2px solid #50514f;
+}
+*/

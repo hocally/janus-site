@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#x(^lwt!b-2y8z+bzs+x6lkkihyz+=_jh@(=p!==slm6d7$((w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['janus-env.hzms9iek7e.us-east-2.elasticbeanstalk.com', '127.0.0.1', 'henryocallaghan.com']
 
@@ -134,7 +134,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
 # Security stuff
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
