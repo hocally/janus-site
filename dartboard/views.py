@@ -12,6 +12,7 @@ from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+from datetime import datetime, timedelta
 # Create your views here.
 
 def index(request):
@@ -40,7 +41,7 @@ def about(request):
     return render(request, 'about.html')
 
 class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
-    """Generic class-based view listing books on loan to current user."""
+    #Generic class-based view listing books on loan to current user.
     model = Choice
     template_name ='choice_list_author.html'
     paginate_by = 10
@@ -51,8 +52,9 @@ class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
 @login_required
 def add_choices_user(request):
 
+    #time_threshold = datetime.now() - timedelta(hours=5)
     #Deletes old choices
-    Choice.objects.filter(author=request.user).delete()
+    #Choice.objects.filter(author=request.user, timestamp).delete()
 
     choices = [Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice()]
 

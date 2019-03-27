@@ -16,10 +16,11 @@ function showNext() {
   }
 }
 
+
 function setup() {
-  for (i = 3; i <= 10; i++) {
+  for (i = 1; i <= 2; i++) {
     var x = document.getElementById(i);
-    x.style.display = "none";
+    x.style.display = "";
   }
 }
 

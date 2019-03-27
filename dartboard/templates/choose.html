@@ -5,20 +5,20 @@
 <script>
   var options = [];
   {% for choice in choices %}
-    options.push( '{{ choice.name }}' );
+  options.push('{{ choice.name }}');
   {% endfor %}
 </script>
 
 <div class="row">
   <div class="col-md-3">
   </div>
-	<div class="col-md-6">
-		<div class="page-header header">
+  <div class="col-md-6">
+    <div class="page-header header">
       <h1>
-      <span class="choose-text"></span>
-      <span class="dots"></span>
+        <span class="choose-text"></span>
+        <span class="dots"></span>
       </h1>
-      <button onclick="skipThrow()" id = "1" type = "button" class="btn btn-block default-button">Don't Tell Me What To Do</button>
+      <button onclick="skipThrow()" id="1" type="button" class="btn btn-block default-button">Don't Tell Me What To Do</button>
     </div>
   </div>
 </div>

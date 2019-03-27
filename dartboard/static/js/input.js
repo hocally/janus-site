@@ -16,6 +16,7 @@ function showNext() {
   }
 }
 
+
 function setup() {
   for (i = 3; i <= 10; i++) {
     var x = document.getElementById(i);
