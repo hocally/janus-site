@@ -1,4 +1,4 @@
-from dartboard.models import Choice
+from dartboard.models import Choice, Decision
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
@@ -43,7 +43,7 @@ def about(request):
 def view_choices(request):
     #Generic class-based view listing books on loan to current user.
     template_name ='choice_list_author.html'
-    context = {'choice_list' : Choice.objects.filter(author=request.user).order_by('-timestamp')}
+    context = {'choice_list' : Choice.objects.filter(author=request.user)}
     return render(request, 'choice_list_author.html', context=context)
 
 @login_required
@@ -53,10 +53,9 @@ def add_choices_user(request):
     #Deletes old choices
     #Choice.objects.filter(author=request.user, timestamp).delete()
 
+    decision = Decision()
+    decision.author = request.user
     choices = [Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice()]
-
-    for choice in choices:
-        choice.author = request.user
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
@@ -79,9 +78,12 @@ def add_choices_user(request):
             choices[9].name = form.cleaned_data['c10']
 
             currentTime = datetime.now()
+            decision.timestamp = currentTime
+            decision.save()
             for choice in choices:
                 if choice.name is not '':
-                    choice.timestamp = currentTime
+                    choice.author = request.user
+                    choice.decision = decision
                     choice.save()
 
             # redirect to a new URL:
@@ -93,6 +95,7 @@ def add_choices_user(request):
         form = AddChoicesForm()
 
     context = {
+        'decision' : decision,
         'form': form,
         'c1': choices[0],
         'c2': choices[1],
@@ -110,8 +113,8 @@ def add_choices_user(request):
 
 @login_required
 def choose(request):
-
-    choices = Choice.objects.filter(author=request.user)
+    currentDecision = Decision.objects.filter(author=request.user).order_by('-timestamp')[0]
+    choices = Choice.objects.filter(decision=currentDecision)
 
     context = {
         'choices': choices,

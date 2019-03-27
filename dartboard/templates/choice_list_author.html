@@ -2,14 +2,14 @@
 
 {% block content %}
 {% if choice_list %}
-{% regroup choice_list by timestamp as choices %}
+{% regroup choice_list by decision.timestamp as choices %}
 <div class="row">
 	<div class="col-md-12">
 		<h1 style="text-align:center">Choices</h1>
-		{% for timestamp in choices %}
-		{{ timestamp.grouper }}
+		{% for decision in choices %}
+		{{ decision.grouper }}
 		<ul class="choice-list">
-			{% for choice in timestamp.list %}
+			{% for choice in decision.list %}
 			<li>{{ choice.name }}</li>
 			{% endfor %}
 		</ul>
