@@ -18,9 +18,9 @@ function showNext() {
 
 
 function setup() {
-  for (i = 1; i <= 2; i++) {
+  for (i = 3; i <= 10; i++) {
     var x = document.getElementById(i);
-    x.style.display = "";
+    x.style.display = "none";
   }
 }
 

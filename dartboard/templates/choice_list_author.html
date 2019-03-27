@@ -1,19 +1,19 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
-<h1 style="text-align:center">Choices</h1>
 {% if choice_list %}
+{% regroup choice_list by timestamp as choices %}
 <div class="row">
-	<div class="col-md-1">
-	</div>
-	<div class="col-md-10">
-		<l class="choice-list">
-			{% for choice in choice_list %}
-			<li>
-				<a href="#">{{choice.name}}, {{choice.timestamp}}</a>
-			</li>
+	<div class="col-md-12">
+		<h1 style="text-align:center">Choices</h1>
+		{% for timestamp in choices %}
+		{{ timestamp.grouper }}
+		<ul class="choice-list">
+			{% for choice in timestamp.list %}
+			<li>{{ choice.name }}</li>
 			{% endfor %}
-		</l>
+		</ul>
+		{% endfor %}
 	</div>
 </div>
 {% else %}

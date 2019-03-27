@@ -103,9 +103,8 @@
 }
 
 .choice-list {
-  text-align: center;
+  list-style: inside;
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
-  list-style-type: none;
   font-size: 20px;
 }
 

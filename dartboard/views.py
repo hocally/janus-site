@@ -40,14 +40,11 @@ def about(request):
     """View function for about page of site"""
     return render(request, 'about.html')
 
-class ChoicesByAuthorListView(LoginRequiredMixin,generic.ListView):
+def view_choices(request):
     #Generic class-based view listing books on loan to current user.
-    model = Choice
     template_name ='choice_list_author.html'
-    paginate_by = 10
-
-    def get_queryset(self):
-        return Choice.objects.filter(author=self.request.user)
+    context = {'choice_list' : Choice.objects.filter(author=request.user).order_by('-timestamp')}
+    return render(request, 'choice_list_author.html', context=context)
 
 @login_required
 def add_choices_user(request):
@@ -81,8 +78,10 @@ def add_choices_user(request):
             choices[8].name = form.cleaned_data['c9']
             choices[9].name = form.cleaned_data['c10']
 
+            currentTime = datetime.now()
             for choice in choices:
                 if choice.name is not '':
+                    choice.timestamp = currentTime
                     choice.save()
 
             # redirect to a new URL:

@@ -103,9 +103,8 @@
 }
 
 .choice-list {
-  text-align: center;
+  list-style: inside;
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
-  list-style-type: none;
   font-size: 20px;
 }
 
@@ -136,13 +135,13 @@
   color: #fffcff;
 }
 
-.add-choice-button {
+.alt-button {
   background-color: #50514f;
   color: #fffcff;
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
 
-.add-choice-button:hover {
+.alt-button:hover {
   background-color: #aaaaaa;
   color: #50514f;
 }
