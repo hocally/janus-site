@@ -19,8 +19,12 @@ def index(request):
     """View function for home page of site."""
 
     # Generate counts of some of the main objects
+    num_choices = -1
     num_visits = request.session.get('num_visits', 0)
-    num_choices = Choice.objects.all().count()
+    if request.user.is_authenticated:
+        num_choices = len(Decision.objects.filter(author=request.user))
+    else:
+        num_choices = len(Decision.objects.filter())
     request.session['num_visits'] = num_visits + 1
 
     context = {

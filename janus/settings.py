@@ -22,9 +22,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '#x(^lwt!b-2y8z+bzs+x6lkkihyz+=_jh@(=p!==slm6d7$((w'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = ['janus-env.hzms9iek7e.us-east-2.elasticbeanstalk.com', '127.0.0.1', 'henryocallaghan.com', 'localhost']
 
 
@@ -138,3 +135,5 @@ SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = False

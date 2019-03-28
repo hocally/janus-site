@@ -25,7 +25,7 @@
 	<div class="col-md-2">
 	</div>
 	<div class="col-md-8">
-		<p class="view-count">Hello {% if user.is_authenticated %}{{ user.get_username }}{% else %}stranger{% endif %}! You've visited {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+		<p class="view-count">Hello {% if user.is_authenticated %}{{ user.get_username }}! You've made {{ num_choices }}{% else %}stranger! Users have made {{ num_choices }}{% endif %}{% if num_choices == 1 %} choice{% else %} choices{% endif %} with Janus.</p>
 	</div>
 </div>
 {% endblock %}
