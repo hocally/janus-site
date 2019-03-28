@@ -2,12 +2,21 @@
 
 {% load staticfiles%}
 {% block content %}
+{% if user.is_authenticated %}
 <script>
   var options = [];
   {% for choice in choices %}
   options.push('{{ choice.name }}');
   {% endfor %}
 </script>
+{% else %}
+<script>
+  var options = [];
+  {% for choice in choices %}
+  options.push('{{ choice }}');
+  {% endfor %}
+</script>
+{% endif %}
 
 <div class="row">
   <div class="col-md-3">

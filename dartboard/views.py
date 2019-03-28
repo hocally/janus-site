@@ -50,16 +50,15 @@ def view_choices(request):
     context = {'choice_list' : Choice.objects.filter(author=request.user)}
     return render(request, 'choice_list_author.html', context=context)
 
-@login_required
 def add_choices_user(request):
 
     #time_threshold = datetime.now() - timedelta(hours=5)
     #Deletes old choices
     #Choice.objects.filter(author=request.user, timestamp).delete()
-
     decision = Decision()
-    decision.author = request.user
     choices = [Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice(), Choice()]
+    if request.user.is_authenticated:
+        decision.author = request.user
 
     # If this is a POST request then process the Form data
     if request.method == 'POST':
@@ -82,13 +81,22 @@ def add_choices_user(request):
             choices[9].name = form.cleaned_data['c10']
 
             currentTime = datetime.now()
-            decision.timestamp = currentTime
-            decision.save()
-            for choice in choices:
-                if choice.name is not '':
-                    choice.author = request.user
-                    choice.decision = decision
-                    choice.save()
+            if request.user.is_authenticated:
+                decision.timestamp = currentTime
+                decision.save()
+                for choice in choices:
+                    if choice.name is not '':
+                        choice.author = request.user
+                        choice.decision = decision
+                        choice.save()
+            else:
+                anonChoices = []
+                for choice in choices:
+                    if choice.name is not '':
+                        anonChoices.append(choice.name)
+                request.session.get('choices', 0)
+                request.session['choices'] = anonChoices
+                request.session.modified = True
 
             # redirect to a new URL:
             return HttpResponseRedirect(reverse('dartboard:choose')) #should redirect to enter choices page
@@ -115,13 +123,15 @@ def add_choices_user(request):
 
     return render(request, 'add_choices_user.html', context)
 
-@login_required
 def choose(request):
-    currentDecision = Decision.objects.filter(author=request.user).order_by('-timestamp')[0]
-    choices = Choice.objects.filter(decision=currentDecision)
+    if request.user.is_authenticated:
+        currentDecision = Decision.objects.filter(author=request.user).order_by('-timestamp')[0]
+        choices = Choice.objects.filter(decision=currentDecision)
+    else:
+        choices = request.session.get('choices')
 
     context = {
         'choices': choices,
     }
-
+    
     return render(request, 'choose.html', context=context)
