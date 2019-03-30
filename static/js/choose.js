@@ -29,6 +29,7 @@ function requestThrow() {
     success: function(data) {
       if (waiting === true) {
         state = 2;
+        hideButton();
         number = JSON.parse(data)["num"];
         var answer = options[number];
         text.text('Your answer is ' + answer + '!');
@@ -43,21 +44,29 @@ function requestThrow() {
 }
 
 function skipThrow() {
-  waiting = false;
-  state = 2;
-  dots.text("");
+  if (state != 2) {
+    waiting = false;
+    state = 2;
+    dots.text("");
+    hideButton();
+    var number = getRandomInt(0, options.length - 1);
+    var answer = options[number];
+    text.text('Your answer is ' + answer + '!');
+  }
+}
+
+function hideButton() {
   var x = document.getElementById(1);
   x.style.display = "none";
-  var number = getRandomInt(0, options.length - 1);
-  var answer = options[number];
-  text.text('Your answer is ' + answer + '!');
 }
 
 function AjaxFailed(result) {
   //alert("hello1");
-  dots.text("");
-  text.text("Error Communicating With the Dartboard");
-  state = -1;
+  if (state != 2) {
+    dots.text("");
+    text.text("Error Communicating With the Dartboard");
+    state = -1;
+  }
 }
 
 setInterval(function() {
