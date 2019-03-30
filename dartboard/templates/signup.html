@@ -1,6 +1,5 @@
 <!-- templates/signup.html -->
 {% extends 'base_generic.html' %}
-
 {% block content %}
 <form method="post" class="login-table">
   <div class="row">
@@ -9,42 +8,49 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 center_div">
+    <div class="col-md-12">
       {% csrf_token %}
       <div class="row">
-        {{ form.username.label }}
+        <div class="col-md-12"">
+          {{ form.username.label_tag }}
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px; margin-bottom: 5px;">
+              {{ form.username }}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row">
-        {{ form.username }}
+        <div class="col-md-12">
+          {{ form.password1.label_tag }}
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px; margin-bottom: 5px;">
+              {{ form.password1 }}
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row">
-        {{ form.password1.label }}
+        <div class="col-md-12">
+          {{ form.password2.label_tag }}
+          <div class="row">
+            <div class="col-md-12" style="margin-top: 10px; margin-bottom: 5px;">
+              {{ form.password2 }}
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        {{ form.password1 }}
-      </div>
-      <div class="row">
-        {{ form.password2.label }}
-      </div>
-      <div class="row">
-        {{ form.password2 }}
-      </div>
-    </div>
-    <div class="col-md-6 center_div">
-      {{ form.password1.help_text }}
-      {% if form.errors %}
-      {% for field in form %}
-      {% for error in field.errors %}
-      <p>{{ error }}</p>
-      {% endfor %}
-      {% endfor %}
-      {% endif %}
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-2">
+      {% if form.errors %}
+      {% for field in form %}
+      {% for error in field.errors %}
+      <p style="text-align:center; margin-top:10px;">{{ error }}</p>
+      {% endfor %}
+      {% endfor %}
+      {% endif %}
       <input type="submit" value="Submit" class="btn btn-block login-button default-button">
     </div>
   </div>

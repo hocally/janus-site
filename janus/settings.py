@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'health_check.db',
     'health_check.cache',
     'health_check.storage',
-    'sslserver'
+    'sslserver',
 ]
 
 MIDDLEWARE = [
@@ -131,9 +131,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
 # Security stuff
-SECURE_SSL_REDIRECT = False
-SESSION_COOKIE_SECURE = False
-CSRF_COOKIE_SECURE = False
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
