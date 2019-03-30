@@ -87,7 +87,7 @@
     </div>
     <div class="col-md-4 choice-input">
       <button onclick="showNext()" id="11" type="button" class="btn btn-block alt-button">Add Choice</button>
-      <input type="submit" value="Submit" class="btn btn-block default-button">
+      <input type="submit" value="Submit" class="btn btn-block default-button" style="margin-bottom: 10px;">
 			{% if not user.is_authenticated %}
 			<a href="{% url 'login'%}">Login to save your choices!</a>
 			{% endif %}
