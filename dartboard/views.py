@@ -47,7 +47,7 @@ def about(request):
 def view_choices(request):
     #Generic class-based view listing books on loan to current user.
     template_name ='choice_list_author.html'
-    context = {'choice_list' : Choice.objects.filter(author=request.user)}
+    context = {'choice_list' : Choice.objects.filter(author=request.user).order_by('decision', 'name')}
     return render(request, 'choice_list_author.html', context=context)
 
 def add_choices_user(request):
@@ -133,5 +133,5 @@ def choose(request):
     context = {
         'choices': choices,
     }
-    
+
     return render(request, 'choose.html', context=context)

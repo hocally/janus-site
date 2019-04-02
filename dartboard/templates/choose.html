@@ -27,6 +27,12 @@
         <span class="dots"></span>
       </h1>
       <button onclick="skipThrow()" id="1" type="button" class="btn btn-block default-button">Don't Tell Me What To Do</button>
+      <button class="btn btn-block default-button" id="2" onclick="window.location.href='{% url 'dartboard:add-choices-user' %}'" style="display:none;">Make Another Decision</button>
+      {% if user.is_authenticated %}
+      <button class="btn btn-block alt-button" id="3" onclick="window.location.href='{% url 'dartboard:choices' %}'" style="display:none;">View Your Previous Decisions</button>
+      {% else %}
+      <button class="btn btn-block alt-button" id="3" onclick="window.location.href='{% url 'login'%}'" style="display:none;">Login to save your choices!</button>
+      {% endif %}
     </div>
   </div>
 </div>

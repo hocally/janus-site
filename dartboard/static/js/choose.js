@@ -29,10 +29,11 @@ function requestThrow() {
     success: function(data) {
       if (waiting === true) {
         state = 2;
-        hideButton();
+        hideBypassButton();
         number = JSON.parse(data)["num"];
         var answer = options[number];
         text.text('Your answer is ' + answer + '!');
+        showAfterButtons();
       }
     },
     data: {
@@ -48,16 +49,24 @@ function skipThrow() {
     waiting = false;
     state = 2;
     dots.text("");
-    hideButton();
+    hideBypassButton();
     var number = getRandomInt(0, options.length - 1);
     var answer = options[number];
     text.text('Your answer is ' + answer + '!');
+    showAfterButtons();
   }
 }
 
-function hideButton() {
+function hideBypassButton() {
   var x = document.getElementById(1);
   x.style.display = "none";
+}
+
+function showAfterButtons() {
+  var x = document.getElementById(2);
+  var y = document.getElementById(3);
+  x.style.display = "";
+  y.style.display = "";
 }
 
 function AjaxFailed(result) {

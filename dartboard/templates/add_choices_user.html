@@ -89,7 +89,7 @@
       <button onclick="showNext()" id="11" type="button" class="btn btn-block alt-button">Add Choice</button>
       <input type="submit" value="Submit" class="btn btn-block default-button" style="margin-bottom: 10px;">
 			{% if not user.is_authenticated %}
-			<a href="{% url 'login'%}">Login to save your choices!</a>
+			<button class="btn btn-block alt-button" onclick="window.location.href='{% url 'login'%}'">Login to save your choices!</button>
 			{% endif %}
     </div>
   </div>
