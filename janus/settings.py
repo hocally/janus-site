@@ -130,7 +130,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
 
-
 # Security stuff for prod
 SECURE_SSL_REDIRECT = True
 SESSION_COOKIE_SECURE = True

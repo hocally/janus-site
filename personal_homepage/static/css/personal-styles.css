@@ -1,0 +1,30 @@
+.home-image {
+  margin-bottom: 20px;
+  float: left;
+  margin-top: 15px;
+  border-radius: 50%;
+  height: auto;
+  width: 100%;
+}
+
+.jumbotron {
+  margin-top: 15px;
+  /*
+  background-image: url("/static/images/zl1GWVzX_400x400.jpg");
+  background-size: cover;
+  */
+}
+
+.background {
+  background-color: #896a67;
+}
+
+.project-list {
+  text-align: left;
+}
+
+.header {
+  text-align: center;
+  margin-top: 10px;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}

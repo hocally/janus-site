@@ -14,7 +14,19 @@ from django.views import generic
 
 # Create your views here.
 def personal_index(request):
-    """View function for home page of site."""
-
-    # Render the HTML template index.html with the data in the context variable
     return render(request, 'personal_index.html')
+
+def power_distribution_module(request):
+    return render(request, 'power_distribution_module.html')
+
+def ride_height_sensor(request):
+    return render(request, 'ride_height_sensor.html')
+
+def strain_gauge_amp(request):
+    return render(request, 'strain_gauge_amp.html')
+
+def slip_angle_sensor(request):
+    return render(request, 'slip_angle_sensor.html')
+
+def khab_2018(request):
+    return render(request, 'khab_2018.html')
