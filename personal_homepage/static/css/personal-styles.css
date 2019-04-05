@@ -28,3 +28,25 @@
   margin-top: 10px;
   font-family: Futura, Trebuchet MS, Arial, sans-serif;
 }
+
+.default-button {
+  background-color: #aaaaaa;
+  color: #50514f;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.default-button:hover {
+  background-color: #50514f;
+  color: #fffcff;
+}
+
+.alt-button {
+  background-color: #50514f;
+  color: #fffcff;
+  font-family: Futura, Trebuchet MS, Arial, sans-serif;
+}
+
+.alt-button:hover {
+  background-color: #aaaaaa;
+  color: #50514f;
+}
